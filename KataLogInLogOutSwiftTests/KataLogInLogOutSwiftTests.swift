@@ -12,10 +12,12 @@ import XCTest
 class KataLogInLogOutSwiftTests: XCTestCase {
     
     var kataUndertest:KataApp!
+    private let clock = ClockMock()
+    
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
-        kataUndertest = KataApp()
+        kataUndertest = KataApp(clock)
     }
     
     override func tearDown() {
@@ -23,8 +25,7 @@ class KataLogInLogOutSwiftTests: XCTestCase {
         super.tearDown()
     }
     func testDoesNotLogInWithEmptyUsername(){
-        let result = kataUndertest.logIn(username: "", password: "admin")
-        XCTAssertEqual(result, false, "Username and password not correct")
+        XCTAssertEqual(kataUndertest.logIn(username: "", password: "admin"), false, "Username and password not correct")
 
     }
     func testDoesLogInWithCorrectUsernameAndPassword(){
@@ -40,4 +41,26 @@ class KataLogInLogOutSwiftTests: XCTestCase {
         }
     }
     
+    func testReturnSuccessIfTheSecondWhenLogOutIsPerformedIsEven(){
+        givenNowIs(Date(timeIntervalSince1970: 2))
+        let result = kataUndertest.logOut()
+        XCTAssertEqual(result, true, "Second not even")
+    }
+    
+    func testReturnFailIfTheSecondWhenLogOutIsPerformedIsOdd(){
+        givenNowIs(Date(timeIntervalSince1970: 1))
+        let result = kataUndertest.logOut()
+        XCTAssertEqual(result, false, "Second not odd")
+    }
+    
+    private func givenNowIs(_ date : Date){
+        clock.mockedNow = date
+    }
+}
+
+class ClockMock: Clock {
+    var mockedNow: Date = Date()
+    override var now:Date {
+        return mockedNow
+    }
 }

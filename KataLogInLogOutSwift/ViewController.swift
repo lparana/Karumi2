@@ -25,8 +25,32 @@ class ViewController: UIViewController {
 
     @IBAction func pressLogIn(_ sender: UIButton) {
         
-        let access = KataApp().logIn(username: usernameTextField.text!, password: PasswordTextField.text!)
-        if access {LogButton.titleLabel?.text = "Log Out"}
+        var kataApp = KataApp(Clock())
+        if LogButton.titleLabel?.text == "Log In"{
+            let access = kataApp.logIn(username: usernameTextField.text!, password: PasswordTextField.text!)
+            if access {
+                LogButton.titleLabel?.text = "Log Out"
+                usernameTextField.isHidden = true
+                PasswordTextField.isHidden = true
+            }
+        }else if LogButton.titleLabel?.text == "Log Out"{
+            
+            if kataApp.logOut() {
+                LogButton.titleLabel?.text = "Log In"
+                usernameTextField.text = ""
+                usernameTextField.isHidden = false
+                PasswordTextField.text = ""
+                PasswordTextField.isHidden = false
+                
+            }else {
+                let alert = UIAlertController(title: "Error", message: "Not pair second", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Try Again", style: .default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            }
+            
+        }
+        
+        
     }
     
 }
