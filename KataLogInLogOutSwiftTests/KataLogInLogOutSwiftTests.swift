@@ -40,6 +40,14 @@ class KataLogInLogOutSwiftTests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
+    func testDoesNotLogInWithInvalidUsername(){
+        XCTAssertEqual(kataUndertest.validateUsername(username: "lara;"), true, "Username not correct")
+    }
+    
+    func testReturnSuccessIfTheUsernameIsCorrect(){
+        XCTAssertEqual(kataUndertest.validateUsername(username: "Admin"), false, "Username not correct")
+
+    }
     
     func testReturnSuccessIfTheSecondWhenLogOutIsPerformedIsEven(){
         givenNowIs(Date(timeIntervalSince1970: 2))

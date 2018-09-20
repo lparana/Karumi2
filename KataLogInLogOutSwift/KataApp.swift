@@ -11,9 +11,9 @@ import Foundation
 
 
 class KataApp{
-    var clock:Date!
+    var clock:Clock!
     init(_ clock:Clock) {
-        self.clock = clock.now
+        self.clock = clock
     }
     func logIn(username:String, password:String) -> Bool {
         
@@ -25,7 +25,11 @@ class KataApp{
     }
     
     func logOut() -> Bool{
-        let time = Int(clock.timeIntervalSince1970)
+        let time = Int(clock.now.timeIntervalSince1970)
         return time % 2 == 0
+    }
+    
+    func validateUsername(username:String) -> Bool{
+        return username.contains(".") || username.contains(",") || username.contains(";")
     }
 }

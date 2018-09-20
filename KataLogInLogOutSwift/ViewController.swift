@@ -17,24 +17,30 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     @IBAction func pressLogIn(_ sender: UIButton) {
         
         var kataApp = KataApp(Clock())
-        if LogButton.titleLabel?.text == "Log In"{
-            let access = kataApp.logIn(username: usernameTextField.text!, password: PasswordTextField.text!)
-            if access {
-                LogButton.titleLabel?.text = "Log Out"
-                usernameTextField.isHidden = true
-                PasswordTextField.isHidden = true
+        let username = usernameTextField.text ?? ""
+        let password = PasswordTextField.text ?? ""
+        if LogButton.titleLabel?.text == "Log In" {
+            if kataApp.validateUsername(username: username) {
+                self.showAlert("Invalid Username")
+            }else{
+                if kataApp.logIn(username: username, password: password) {
+                    LogButton.titleLabel?.text = "Log Out"
+                    usernameTextField.isHidden = true
+                    PasswordTextField.isHidden = true
+                }else{
+                    self.showAlert("Bad Credentials")
+                }
             }
         }else if LogButton.titleLabel?.text == "Log Out"{
-            
             if kataApp.logOut() {
                 LogButton.titleLabel?.text = "Log In"
                 usernameTextField.text = ""
@@ -43,15 +49,15 @@ class ViewController: UIViewController {
                 PasswordTextField.isHidden = false
                 
             }else {
-                let alert = UIAlertController(title: "Error", message: "Not pair second", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Try Again", style: .default, handler: nil))
-                self.present(alert, animated: true, completion: nil)
+                self.showAlert("Not pair second")
             }
-            
         }
         
-        
     }
-    
+    func showAlert(_ message:String){
+        let alert = UIAlertController(title: "Error", message: "message", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Try Again", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
 }
 
