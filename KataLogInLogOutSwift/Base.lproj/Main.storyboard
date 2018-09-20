@@ -33,11 +33,19 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Moi-cm-OQQ">
-                                <rect key="frame" x="166" y="318" width="42" height="30"/>
+                                <rect key="frame" x="93" y="267" width="188" height="81"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Log In"/>
                                 <connections>
                                     <action selector="pressLogIn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GaG-HT-Jez"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hgu-Xb-qSX">
+                                <rect key="frame" x="160" y="292" width="55" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Log Out"/>
+                                <connections>
+                                    <action selector="tappLogOutButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8FO-mj-El6"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -46,6 +54,7 @@
                     </view>
                     <connections>
                         <outlet property="LogButton" destination="Moi-cm-OQQ" id="Agz-oV-mII"/>
+                        <outlet property="LogOutButton" destination="hgu-Xb-qSX" id="Yh5-v8-APG"/>
                         <outlet property="PasswordTextField" destination="1G0-GP-fTn" id="rC5-gI-92d"/>
                         <outlet property="usernameTextField" destination="QmJ-Uy-dAj" id="l3D-ob-OED"/>
                     </connections>
