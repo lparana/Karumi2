@@ -13,6 +13,7 @@
 		EF5F1CF42153DB8F00A8D2F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF5F1CF32153DB8F00A8D2F8 /* Assets.xcassets */; };
 		EF5F1CF72153DB8F00A8D2F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF5F1CF52153DB8F00A8D2F8 /* LaunchScreen.storyboard */; };
 		EF5F1D022153DB8F00A8D2F8 /* KataLogInLogOutSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5F1D012153DB8F00A8D2F8 /* KataLogInLogOutSwiftTests.swift */; };
+		EF5F1D0D2153E0AD00A8D2F8 /* KataApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5F1D0C2153E0AD00A8D2F8 /* KataApp.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		EF5F1CFD2153DB8F00A8D2F8 /* KataLogInLogOutSwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KataLogInLogOutSwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF5F1D012153DB8F00A8D2F8 /* KataLogInLogOutSwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KataLogInLogOutSwiftTests.swift; sourceTree = "<group>"; };
 		EF5F1D032153DB8F00A8D2F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EF5F1D0C2153E0AD00A8D2F8 /* KataApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KataApp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				EF5F1CEC2153DB8E00A8D2F8 /* AppDelegate.swift */,
+				EF5F1D0C2153E0AD00A8D2F8 /* KataApp.swift */,
 				EF5F1CEE2153DB8E00A8D2F8 /* ViewController.swift */,
 				EF5F1CF02153DB8E00A8D2F8 /* Main.storyboard */,
 				EF5F1CF32153DB8F00A8D2F8 /* Assets.xcassets */,
@@ -198,6 +201,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF5F1CEF2153DB8E00A8D2F8 /* ViewController.swift in Sources */,
+				EF5F1D0D2153E0AD00A8D2F8 /* KataApp.swift in Sources */,
 				EF5F1CED2153DB8E00A8D2F8 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

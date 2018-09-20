@@ -11,6 +11,7 @@ import UIKit
 class ViewController: UIViewController {
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var PasswordTextField: UITextField!
+    @IBOutlet weak var LogButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,11 +24,9 @@ class ViewController: UIViewController {
     }
 
     @IBAction func pressLogIn(_ sender: UIButton) {
-        if(usernameTextField.text == "admin" && PasswordTextField.text == "admin"){
-            
-        }else{
-            
-        }
+        
+        let access = KataApp().logIn(username: usernameTextField.text!, password: PasswordTextField.text!)
+        if access {LogButton.titleLabel?.text = "Log Out"}
     }
     
 }
