@@ -16,10 +16,18 @@
 		EF5F1D0D2153E0AD00A8D2F8 /* KataApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5F1D0C2153E0AD00A8D2F8 /* KataApp.swift */; };
 		EF5F1D0F2153E67D00A8D2F8 /* Clock.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5F1D0E2153E67D00A8D2F8 /* Clock.swift */; };
 		EF5F1D112153F52B00A8D2F8 /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5F1D102153F52B00A8D2F8 /* Presenter.swift */; };
+		EF5F1D202153FD9B00A8D2F8 /* PresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5F1D182153FBC700A8D2F8 /* PresenterTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		EF5F1CFE2153DB8F00A8D2F8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EF5F1CE12153DB8E00A8D2F8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EF5F1CE82153DB8E00A8D2F8;
+			remoteInfo = KataLogInLogOutSwift;
+		};
+		EF5F1D1B2153FBC700A8D2F8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = EF5F1CE12153DB8E00A8D2F8 /* Project object */;
 			proxyType = 1;
@@ -42,6 +50,8 @@
 		EF5F1D0C2153E0AD00A8D2F8 /* KataApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KataApp.swift; sourceTree = "<group>"; };
 		EF5F1D0E2153E67D00A8D2F8 /* Clock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clock.swift; sourceTree = "<group>"; };
 		EF5F1D102153F52B00A8D2F8 /* Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presenter.swift; sourceTree = "<group>"; };
+		EF5F1D162153FBC700A8D2F8 /* PresenterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PresenterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF5F1D182153FBC700A8D2F8 /* PresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresenterTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +63,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		EF5F1CFA2153DB8F00A8D2F8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EF5F1D132153FBC700A8D2F8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -76,6 +93,7 @@
 			children = (
 				EF5F1CE92153DB8E00A8D2F8 /* KataLogInLogOutSwift.app */,
 				EF5F1CFD2153DB8F00A8D2F8 /* KataLogInLogOutSwiftTests.xctest */,
+				EF5F1D162153FBC700A8D2F8 /* PresenterTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -100,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				EF5F1D012153DB8F00A8D2F8 /* KataLogInLogOutSwiftTests.swift */,
+				EF5F1D182153FBC700A8D2F8 /* PresenterTests.swift */,
 				EF5F1D032153DB8F00A8D2F8 /* Info.plist */,
 			);
 			path = KataLogInLogOutSwiftTests;
@@ -143,6 +162,24 @@
 			productReference = EF5F1CFD2153DB8F00A8D2F8 /* KataLogInLogOutSwiftTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		EF5F1D152153FBC700A8D2F8 /* PresenterTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EF5F1D1D2153FBC700A8D2F8 /* Build configuration list for PBXNativeTarget "PresenterTests" */;
+			buildPhases = (
+				EF5F1D122153FBC700A8D2F8 /* Sources */,
+				EF5F1D132153FBC700A8D2F8 /* Frameworks */,
+				EF5F1D142153FBC700A8D2F8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EF5F1D1C2153FBC700A8D2F8 /* PBXTargetDependency */,
+			);
+			name = PresenterTests;
+			productName = PresenterTests;
+			productReference = EF5F1D162153FBC700A8D2F8 /* PresenterTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -157,6 +194,10 @@
 						CreatedOnToolsVersion = 9.4.1;
 					};
 					EF5F1CFC2153DB8F00A8D2F8 = {
+						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = EF5F1CE82153DB8E00A8D2F8;
+					};
+					EF5F1D152153FBC700A8D2F8 = {
 						CreatedOnToolsVersion = 9.4.1;
 						TestTargetID = EF5F1CE82153DB8E00A8D2F8;
 					};
@@ -177,6 +218,7 @@
 			targets = (
 				EF5F1CE82153DB8E00A8D2F8 /* KataLogInLogOutSwift */,
 				EF5F1CFC2153DB8F00A8D2F8 /* KataLogInLogOutSwiftTests */,
+				EF5F1D152153FBC700A8D2F8 /* PresenterTests */,
 			);
 		};
 /* End PBXProject section */
@@ -193,6 +235,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		EF5F1CFB2153DB8F00A8D2F8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EF5F1D142153FBC700A8D2F8 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -218,7 +267,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF5F1D202153FD9B00A8D2F8 /* PresenterTests.swift in Sources */,
 				EF5F1D022153DB8F00A8D2F8 /* KataLogInLogOutSwiftTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EF5F1D122153FBC700A8D2F8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -229,6 +286,11 @@
 			isa = PBXTargetDependency;
 			target = EF5F1CE82153DB8E00A8D2F8 /* KataLogInLogOutSwift */;
 			targetProxy = EF5F1CFE2153DB8F00A8D2F8 /* PBXContainerItemProxy */;
+		};
+		EF5F1D1C2153FBC700A8D2F8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EF5F1CE82153DB8E00A8D2F8 /* KataLogInLogOutSwift */;
+			targetProxy = EF5F1D1B2153FBC700A8D2F8 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -444,6 +506,46 @@
 			};
 			name = Release;
 		};
+		EF5F1D1E2153FBC700A8D2F8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = DU53BN6DV9;
+				INFOPLIST_FILE = PresenterTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = prueba.PresenterTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KataLogInLogOutSwift.app/KataLogInLogOutSwift";
+			};
+			name = Debug;
+		};
+		EF5F1D1F2153FBC700A8D2F8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = DU53BN6DV9;
+				INFOPLIST_FILE = PresenterTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = prueba.PresenterTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KataLogInLogOutSwift.app/KataLogInLogOutSwift";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -470,6 +572,15 @@
 			buildConfigurations = (
 				EF5F1D0A2153DB8F00A8D2F8 /* Debug */,
 				EF5F1D0B2153DB8F00A8D2F8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EF5F1D1D2153FBC700A8D2F8 /* Build configuration list for PBXNativeTarget "PresenterTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EF5F1D1E2153FBC700A8D2F8 /* Debug */,
+				EF5F1D1F2153FBC700A8D2F8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
