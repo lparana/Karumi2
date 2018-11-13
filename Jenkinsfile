@@ -14,16 +14,19 @@ node('macminisergiy') {
             ]]
         ])
 
-        importDeveloperProfile keychainName: '', keychainPath: '', keychainPwd: '', profileId: '017eb015-01d8-4fd5-8ba2-7cb6536ca56a'
+        //importDeveloperProfile keychainName: '', keychainPath: '', keychainPwd: '', profileId: '017eb015-01d8-4fd5-8ba2-7cb6536ca56a'
 
         // Build and Test
-        sh 'xcodebuild -project KataLogInLogOutSwift.xcodeproj'
+        sh 'xcodebuild -project KataLogInLogOutSwift.xcodeproj' CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO | /usr/local/bin/xcpretty
 
         sh 'xcodebuild -project KataLogInLogOutSwift.xcodeproj -scheme KataLogInLogOutSwift -destination "platform=iOS Simulator,name=iPhone 8"  -enableCodeCoverage YES test'
         //sh 'xcodebuild -scheme "TimeTable" -configuration "Debug" build test -destination "platform=iOS Simulator,name=iPhone 6,OS=10.1" -enableCodeCoverage YES | /usr/local/bin/xcpretty -r junit'
 
         // Publish test restults.
         //step([$class: 'JUnitResultArchiver', allowEmptyResults: true, testResults: 'build/reports/junit.xml'])
+    }
+    stage('Test') {
+    	sh 'xcodebuild -project KataLogInLogOutSwift.xcodeproj -scheme KataLogInLogOutSwift -destination "platform=iOS Simulator,name=iPhone 8"  -enableCodeCoverage YES test' | /usr/local/bin/xcpretty
     }
 
    /* stage('Analytics') {
