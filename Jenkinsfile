@@ -1,4 +1,4 @@
-node {
+node('macminisergiy') {
 
     stage('Checkout/Build/Test') {
 
@@ -13,6 +13,8 @@ node {
                 url: 'https://github.com/lparana/Karumi2.git'
             ]]
         ])
+
+        importDeveloperProfile keychainName: '', keychainPath: '', keychainPwd: '', profileId: '017eb015-01d8-4fd5-8ba2-7cb6536ca56a'
 
         // Build and Test
         sh 'xcodebuild -project KataLogInLogOutSwift.xcodeproj'
