@@ -8,8 +8,8 @@ pipeline {
         stage('Preparation') {
             steps {
                 echo 'Preparation...'
-                sh 'gem install xcpretty'
-                sh 'gem install slather'
+                sh 'sudo gem install xcpretty'
+                sh 'sudo gem install slather'
                 // Checkout files.
                 checkout([
                     $class: 'GitSCM',
