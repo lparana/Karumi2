@@ -33,12 +33,12 @@ pipeline {
             steps {
                 echo 'Build...'
                 // Build
-                sh 'xcodebuild -project KataLogInLogOutSwift.xcodeproj CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO | /usr/local/bin/xcpretty -r junit'
+                sh 'xcodebuild -project KataLogInLogOutSwift.xcodeproj CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO | /usr/local/bin/xcpretty -c'
             }
         }
         stage('Test') {
             steps {
-            	sh 'xcodebuild -project KataLogInLogOutSwift.xcodeproj -scheme KataLogInLogOutSwift -destination "platform=iOS Simulator,name=iPhone 8"  -enableCodeCoverage YES test | /usr/local/bin/xcpretty'
+            	sh 'xcodebuild -project KataLogInLogOutSwift.xcodeproj -scheme KataLogInLogOutSwift -destination "platform=iOS Simulator,name=iPhone 8"  -enableCodeCoverage YES test | /usr/local/bin/xcpretty  -r junit'
                 // Publish test restults.
                 step([$class: 'JUnitResultArchiver', allowEmptyResults: true, testResults: 'build/reports/junit.xml'])
             }
