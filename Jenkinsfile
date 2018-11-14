@@ -1,48 +1,53 @@
-//node('macminisergiy') {
-pipeline{
+pipeline {
     
-    agent{
+    agent {
         label 'macminisergiy'
     }
+    //node('macminisergiy') {
     stages {
         stage('Preparation') {
-            echo 'Preparation...'
-            sh 'gem install xcpretty'
-            sh 'gem install slather'
-            // Checkout files.
-            checkout([
-                $class: 'GitSCM',
-                branches: [[name: '*/master']],
-                doGenerateSubmoduleConfigurations: false,
-                extensions: [], submoduleCfg: [],
-                userRemoteConfigs: [[
-                    name: 'github',
-                    url: 'https://github.com/lparana/Karumi2.git'
-                ]]
-            ])
+            steps {
+                echo 'Preparation...'
+                sh 'gem install xcpretty'
+                sh 'gem install slather'
+                // Checkout files.
+                checkout([
+                    $class: 'GitSCM',
+                    branches: [[name: '*/master']],
+                    doGenerateSubmoduleConfigurations: false,
+                    extensions: [], submoduleCfg: [],
+                    userRemoteConfigs: [[
+                        name: 'github',
+                        url: 'https://github.com/lparana/Karumi2.git'
+                    ]]
+                ])
 
-            //importDeveloperProfile keychainName: '', keychainPath: '', keychainPwd: '', profileId: '017eb015-01d8-4fd5-8ba2-7cb6536ca56a'
+                //importDeveloperProfile keychainName: '', keychainPath: '', keychainPwd: '', profileId: '017eb015-01d8-4fd5-8ba2-7cb6536ca56a'
 
-            
+                
 
-            //sh 'xcodebuild -project KataLogInLogOutSwift.xcodeproj -scheme KataLogInLogOutSwift -destination "platform=iOS Simulator,name=iPhone 8"  -enableCodeCoverage YES test'
-            //sh 'xcodebuild -scheme "TimeTable" -configuration "Debug" build test -destination "platform=iOS Simulator,name=iPhone 6,OS=10.1" -enableCodeCoverage YES | /usr/local/bin/xcpretty -r junit'
+                //sh 'xcodebuild -project KataLogInLogOutSwift.xcodeproj -scheme KataLogInLogOutSwift -destination "platform=iOS Simulator,name=iPhone 8"  -enableCodeCoverage YES test'
+                //sh 'xcodebuild -scheme "TimeTable" -configuration "Debug" build test -destination "platform=iOS Simulator,name=iPhone 6,OS=10.1" -enableCodeCoverage YES | /usr/local/bin/xcpretty -r junit'
 
-            
+            }
         }
         stage('Build') {
-            echo 'Build...'
-            // Build
-            sh 'xcodebuild -project KataLogInLogOutSwift.xcodeproj CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO | /usr/local/bin/xcpretty -r junit'
+            steps {
+                echo 'Build...'
+                // Build
+                sh 'xcodebuild -project KataLogInLogOutSwift.xcodeproj CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO | /usr/local/bin/xcpretty -r junit'
+            }
         }
         stage('Test') {
-        	sh 'xcodebuild -project KataLogInLogOutSwift.xcodeproj -scheme KataLogInLogOutSwift -destination "platform=iOS Simulator,name=iPhone 8"  -enableCodeCoverage YES test | /usr/local/bin/xcpretty'
-            // Publish test restults.
-            step([$class: 'JUnitResultArchiver', allowEmptyResults: true, testResults: 'build/reports/junit.xml'])
+            steps {
+            	sh 'xcodebuild -project KataLogInLogOutSwift.xcodeproj -scheme KataLogInLogOutSwift -destination "platform=iOS Simulator,name=iPhone 8"  -enableCodeCoverage YES test | /usr/local/bin/xcpretty'
+                // Publish test restults.
+                step([$class: 'JUnitResultArchiver', allowEmptyResults: true, testResults: 'build/reports/junit.xml'])
+            }
         }
 
         stage('Analytics') {
-            
+            steps {
             parallel Coverage: {
                 // Generate Code Coverage report
                 sh '/usr/local/bin/slather coverage --jenkins --html --scheme KataLogInLogOutSwift KataLogInLogOutSwift.xcodeproj/'
@@ -59,6 +64,7 @@ pipeline{
                 // Publish checkstyle result
                 step([$class: 'CheckStylePublisher', canComputeNew: false, defaultEncoding: '', healthy: '', pattern: 'checkstyle.xml', unHealthy: ''])
             }*/, failFast: true|false   
+            }
         }
 
         /*stage ('Notify') {
